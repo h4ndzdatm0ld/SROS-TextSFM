@@ -1,0 +1,11 @@
+Value Key Name (.*?)
+Value CpuTime (\S+)
+Value CpuUsage (\S+)
+Value CapacityUsage (\S+)
+
+Start
+  ^-{5,} -> Entries
+
+Entries
+  ^${Name}\s{4,}${CpuTime}\s+~?${CpuUsage}%\s+~?${CapacityUsage}% -> Record
+  ^-{5,} -> EOF

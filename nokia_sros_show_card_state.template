@@ -1,0 +1,10 @@
+Value Key SLOT (\S+)
+Value CardType (\S+)
+Value AdminState (\S+)
+Value OperState (\S+)
+
+Start
+  ^-{10,} -> Cards
+  
+Cards
+  ^${SLOT}\s+${CardType}\s+${AdminState}\s+${OperState} -> Record

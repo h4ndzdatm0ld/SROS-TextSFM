@@ -1,0 +1,13 @@
+Value Filldown Name (.*?)
+Value Key,Required IfName (\S+)
+Value Area (\d+.\d+.\d+.\d+)
+Value Designated (\d+.\d+.\d+.\d+)
+Value Bkup (\d+.\d+.\d+.\d+)
+Value Rtr (.*)
+Value Adm (\S+)
+Value Oper (\S+)
+
+Start
+  ^={5,79}
+  ^${Name}\s+(i|I)nterfaces
+  ^${IfName}\s+${Area}\s+${Designated}\s+${Bkup}\s+${Rtr}\s+${Adm}\s+${Oper} -> Record

@@ -1,0 +1,9 @@
+Value Key,Required SVC_ID (\d+)
+Value TYPE (\S+)
+Value ADM (\S+)
+Value OPR (\S+)
+Value CUSTOMER_ID (\d+)
+Value SERVICE_NAME (.*)
+
+Start
+  ^${SVC_ID}\s+${TYPE}\s+${ADM}\s+${OPR}\s+${CUSTOMER_ID}\s+(${SERVICE_NAME})? -> Record

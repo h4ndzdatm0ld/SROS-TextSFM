@@ -1,0 +1,14 @@
+Value Required INTERFACE (.*)
+Value IP (\S+)
+Value AREA (\S+)
+Value ADM (\S+)
+Value OPR (.*)
+Value DR (\S+)
+Value BDR (\S+)
+
+Start
+  ^Interface : ${INTERFACE}
+  ^(?i)ip address\s+: ${IP}
+  ^(?i)area id\s+: ${AREA}
+  ^(?i)admin status\s+: ${ADM}.*: ${OPR}
+  ^(?i)designated rtr\s+: ${DR}.*: ${BDR} -> Record

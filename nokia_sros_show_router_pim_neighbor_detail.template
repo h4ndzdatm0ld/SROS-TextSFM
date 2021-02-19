@@ -1,0 +1,8 @@
+Value Required INTERFACE (.*)
+Value NBR_ADDR (\S+)
+Value DR_PRIORITY (\d+)
+
+Start
+  ^Interface\s+: ${INTERFACE}
+  ^(?i)neighbor addr\s+: ${NBR_ADDR}
+  ^(?i)dr priority\s+: ${DR_PRIORITY} -> Record

@@ -1,0 +1,13 @@
+Value INTERFACE (\S+)
+Value NBR_DR_PRTY (\d+)
+Value UP_TIME (\d+d\s+\d+:\d+:\d+)
+Value EXPIRY_TIME (\d+d\s+\d+:\d+:\d+)
+Value HOLD_TIME (\d+)
+Value NBR_ADDR (\d+\.\d+\.\d+\.\d+)
+
+Start
+  ^-{5,} -> Entry
+
+Entry
+  ^${INTERFACE}\s+${NBR_DR_PRTY}\s+${UP_TIME}\s+${EXPIRY_TIME}\s+${HOLD_TIME}
+  ^\s+${NBR_ADDR} -> Record Entry

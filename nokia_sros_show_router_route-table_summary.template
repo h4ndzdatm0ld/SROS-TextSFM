@@ -1,0 +1,10 @@
+Value Key,Required PROTOCOL (\S+\s?\S+)
+Value ACTIVE (\d+)
+Value AVAILABLE (\d+)
+
+Start
+  ^-{5,} -> Entries
+
+Entries
+  ^${PROTOCOL}\s+${ACTIVE}\s+${AVAILABLE} -> Record
+  ^-{5,} -> EOF

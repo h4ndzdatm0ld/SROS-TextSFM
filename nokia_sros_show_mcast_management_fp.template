@@ -1,0 +1,12 @@
+Value Filldown SF (\S+)
+Value Required Policy (\S+)
+Value Required Type (\S+)
+Value Required InUseBw (\d+)
+Value Required Admin (\S+)
+
+Start
+  ^Fp Summary -> ReadFP
+
+ReadFP
+  ^${SF}\s+${Policy}\s+${Type}\s+${InUseBw}\sKbps\s+${Admin} -> Record
+  ^\s+${Policy}\s+${Type}\s+${InUseBw}\sKbps\s+${Admin} -> Record

@@ -1,0 +1,25 @@
+Value Required,Key LAG_ID (\d+)
+Value MODE (\S+)
+Value ADM (\S+)
+Value OPR (\S+)
+Value List PORT_ID (\S+)
+Value List PORT_ADM (\S+)
+Value List PORT_ACTIVE_STANDBY (\S+)
+Value List PORT_OPR (\S+)
+Value List PORT_PRIMARY (\S+)
+Value List PORT_SUB_GROUP (\d+)
+Value List PORT_FORCED (\S+)
+Value List PORT_PRIO (\d+)
+
+Start
+  ^LAG \d+ -> Lag
+
+Lag
+  ^Lag-id\s+: ${LAG_ID}\s+Mode\s+: ${MODE}
+  ^Adm\s+: ${ADM}\s+Opr\s+: ${OPR}
+  ^Port-id\s+Adm -> LagPort
+
+# PORT_PRIMARY - no output in CLI if false, None in python
+LagPort
+  ^${PORT_ID}\s+${PORT_ADM}\s+${PORT_ACTIVE_STANDBY}\s+${PORT_OPR}\s+${PORT_PRIMARY}?\s+${PORT_SUB_GROUP}\s+${PORT_FORCED}\s+${PORT_PRIO}
+  ^LAG \d+ -> Record Lag

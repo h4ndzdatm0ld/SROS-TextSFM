@@ -1,0 +1,23 @@
+Value Key LSP_Name (.*?)
+Value Key Path_name (.*)
+Value From (\d+\.\d+\.\d+\.\d+)
+Value To (\d+\.\d+\.\d+\.\d+)
+Value Admin_State (Up|Down)
+Value Oper_State (Up|Down)
+Value Path_Admin (Up|Down)
+Value Path_Oper (Up|Down)
+Value Record_Label (\S+)
+Value Oper_Record_Label (\S+)
+Value Neg_MTU (\d+)
+Value Oper_MTU (\d+)
+
+Start
+  ^LSP .*? Path .* -> Continue.Record
+  ^LSP ${LSP_Name} Path ${Path_name}
+  ^From\s+:\s+${From}\s+To\s+:\s+${To}
+  ^Admin State\s+:\s+${Admin_State}\s+Oper State\s+:\s+${Oper_State}
+  ^Path Admin\s+:\s+${Path_Admin}\s+Path Oper\s+:\s+${Path_Oper}
+  ^Record Label\s+:\s+${Record_Label}\s+Oper Record Label\s+:\s+${Oper_Record_Label}
+  ^Neg MTU\s+:\s+${Neg_MTU}\s+Oper MTU\s+:\s+${Oper_MTU}
+
+# WARNING NOT COMPLETE, ONLY PARTIAL PARAMETERS!!!

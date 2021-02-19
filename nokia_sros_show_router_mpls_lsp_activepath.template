@@ -1,0 +1,12 @@
+Value Key LSP_Name (.*?)
+Value LSP_Id (\S+)
+Value Path_Name (.*?)
+Value Active_Path (\S+)
+Value To (\S+)
+Value LSP_Type (\S+)
+
+Start
+  ^LSP Name\s+:\s*${LSP_Name}\s+LSP Id\s+:\s*${LSP_Id}
+  ^Path Name\s+:\s*${Path_Name}\s+Active Path\s+:\s*${Active_Path}
+  ^To\s+:\s*${To}\s+LSP Type\s+:\s*${LSP_Type}
+  ^\s+$$ -> Record

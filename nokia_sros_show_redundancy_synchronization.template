@@ -1,0 +1,46 @@
+Value StandStat (.*)
+Value LastStandFail (\S+)
+Value StandUpTime (.*)
+Value List StandVersion (.*)
+Value FailTime (.*)
+Value FailReason (.*)
+Value BCSM (.*)
+Value BCSS (.*)
+Value LCFST (.*)
+Value LBEST (.*)
+Value RollSynMode (\S+)
+Value RollSynStat (.*)
+Value LastRollSynTime (.*)
+Value CertifiSyn (\S+)
+Value CertSyn (.*)
+Value LastCertSynTime (.*)
+
+Start
+  ^Synchronization -> ReadData
+
+ReadData
+  ^Standby Status\s+:\s+${StandStat}
+  ^Last Standby Failure\s+:\s+${LastStandFail}
+  ^Standby Up Time\s+:\s+${StandUpTime}
+  ^Standby Version -> ReadVersion
+
+ReadVersion
+  ^\S \S\S -> Continue.Record
+  ^Standby Version\s+:\s+${StandVersion}
+  ^\s+${StandVersion} -> ReadVersion
+  ^Failover Time\s+:\s+${FailTime} -> ReadRest
+
+
+ReadRest
+  ^Failover Time\s+:\s+${FailTime}
+  ^Failover Reason\s+:\s+${FailReason}
+  ^Boot/Config Sync Mode\s+:\s+${BCSM}
+  ^Boot/Config Sync Status\s+:\s+${BCSS}
+  ^Last Config File Sync Time\s+:\s+${LCFST}
+  ^Last Boot Env Sync Time\s+:\s+${LBEST}
+  ^Rollback Sync Mode\s+:\s+${RollSynMode}
+  ^Rollback Sync Status\s+:\s+${RollSynStat}
+  ^Last Rollback Sync Time\s+:\s+${LastRollSynTime}
+  ^Certificate Sync\s+:\s+${CertifiSyn}
+  ^Cert Sync Status\s+:\s+${CertSyn}
+  ^Last Cert Sync Time\s+:\s+${LastCertSynTime}

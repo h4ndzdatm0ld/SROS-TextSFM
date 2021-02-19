@@ -1,0 +1,6 @@
+Value Required,Key LAG_ID (\d+)
+Value ADM (\S+)
+Value OPR (\S+)
+
+Start
+  ^${LAG_ID}\s+${ADM}\s+${OPR} -> Record

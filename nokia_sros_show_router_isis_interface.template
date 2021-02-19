@@ -1,0 +1,9 @@
+Value Required,Key INTERFACE (\w.*?)
+Value Level (\w+)
+Value CircID (\d+)
+Value OperState (Up|Down)
+Value L1L2 (\S+)
+
+Start
+  ^.*?\s+(L1|L2) -> Continue.Record
+  ^${INTERFACE}\s*${Level}\s*${CircID}\s*${OperState}\s*${L1L2}

@@ -1,0 +1,11 @@
+Value IP_ADDR (\S+)
+Value MAC ((?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2}))
+Value EXPIRY (\S+)
+Value TYPE (\S+)
+Value INTERFACE (.*)
+
+Start
+  ^-{5,} -> Entries
+
+Entries
+  ^(?i)${IP_ADDR}\s+${MAC}\s+${EXPIRY}\s+${TYPE}\s+\b${INTERFACE} -> Record

@@ -1,0 +1,13 @@
+Value Key Interface (\w.*?)
+Value LocalAddr (\d+\.\d+\.\d+\.\d+)
+Value Key PeerAddr (\d+\.\d+\.\d+\.\d+)
+Value AdjType (\S+)
+Value State (\S+)
+
+Start
+  ^${Interface}\s\s+${LocalAddr}\s+${PeerAddr}\s+${AdjType}\s+${State} -> Record SASm
+  ^${Interface}\s\s+${LocalAddr}:\d+\s+${State}
+  ^${AdjType}\s+${PeerAddr}:\d+ -> Record
+  
+SASm
+  ^${Interface}\s\s+${LocalAddr}\s+${PeerAddr}\s+${AdjType}\s+${State} -> Record

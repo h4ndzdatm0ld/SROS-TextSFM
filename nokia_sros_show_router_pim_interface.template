@@ -1,0 +1,14 @@
+Value Required,Key INTERFACE (\S+)
+Value ADM (\S+)
+Value OPR (\S+)
+Value DR_PRTY (\d+)
+Value HELLO_INTV (\d+)
+Value MCAST_SEND (\S+)
+Value DR_ADDR (\d+\.\d+\.\d+\.\d+)
+
+Start
+  ^-{5,} -> Entry
+
+Entry
+  ^${INTERFACE}\s+${ADM}\s+${OPR}\s+${DR_PRTY}\s+${HELLO_INTV}\s+${MCAST_SEND}
+  ^\s+${DR_ADDR} -> Record Entry

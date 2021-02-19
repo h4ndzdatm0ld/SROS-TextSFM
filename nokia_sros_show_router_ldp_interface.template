@@ -1,0 +1,19 @@
+Value Required,Key INTERFACE (\w.*?)
+Value AdminState (Up|Down)
+Value OperState (Up|Down)
+Value HelloFactor (\d*)
+Value HoldTime (\d*)
+Value KAFactor (\d*)
+Value KATimeout (\d*)
+Value TxAddr (\w*)
+
+Start
+  ^Interface                        Adm Opr  Hello  Hold  KA     KA      Transport -> Ver_1
+  ^ Sub-Interface\(s\)                  Adm\/Opr  Hello Hold  KA    KA    Transport -> Ver_2
+
+Ver_1
+  ^.*?\s+(Up|Down) -> Continue.Record
+  ^${INTERFACE}\s+${AdminState}\s+${OperState}\s+${HelloFactor}\s+${HoldTime}\s+${KAFactor}\s+${KATimeout}\s+${TxAddr}
+
+Ver_2
+  ^${INTERFACE}\s+${AdminState}\/${OperState} -> Record

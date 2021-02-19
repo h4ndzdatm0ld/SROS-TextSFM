@@ -1,0 +1,23 @@
+Value Configured (\S+)
+Value Stratum (\S+)
+Value AdminStat (\S+)
+Value OperStatus (\S+)
+Value ServerEnable (\S+)
+Value ServerAuth (\S+)
+Value ClockSource (\S+)
+Value AuthCheck (\S+)
+Value MDATime (\S+)
+Value CurrDate (.*)
+
+
+Start
+  ^NTP Status -> ReadNTP
+
+ReadNTP
+  ^Configured\s+:\s+${Configured}\s+Stratum\s+:\s+${Stratum}
+  ^Admin Status\s+:\s+${AdminStat}\s+Oper Status\s+:\s+${OperStatus}
+  ^Server Enabled\s+:\s+${ServerEnable}\s+Server Authenticate\s+:\s+${ServerAuth}
+  ^Clock Source\s+:\s+${ClockSource}
+  ^Auth Check\s+:\s+${AuthCheck}
+  ^MDA Timestamp\s+:\s+${MDATime}
+  ^Current Date & Time:\s+${CurrDate}

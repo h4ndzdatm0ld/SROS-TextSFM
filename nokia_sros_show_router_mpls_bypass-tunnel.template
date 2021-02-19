@@ -1,0 +1,11 @@
+Value Key Session_name (\S+)
+Value Required To (\S+)
+Value State (Up|Down)
+Value Out_IF (.*?)
+Value Out_Label (\d+)
+Value Protected_LSP_Count (\d+)
+Value Type (\S+)
+
+Start
+  ^${Session_name}
+  ^\s+${To}\s+${State}\s+${Out_IF}\s+${Out_Label}\s+${Protected_LSP_Count}\s+${Type} -> Record

@@ -1,0 +1,17 @@
+Value PEERIP (\d+\.\d+\.\d+\.\d+)
+Value PEERADM (\w*)
+Value PEER_CLIENT (MC-\w+)
+Value PEER_ADMIN (--)
+Value PEER_OPER (--)
+Value SRCIP (\d+\.\d+\.\d+\.\d+)
+Value AUTH (\w*)
+Value SRC_CLIENT (MC-\w+)
+Value SRC_ADMIN (--)
+Value SRC_OPER (--)
+
+Start
+  ^Multi-Chassis -> ReadData
+
+ReadData
+  ^${PEERIP}\s+${PEERADM}\s*${PEER_CLIENT}:\s*${PEER_ADMIN}\s+${PEER_OPER},
+  ^\s*${SRCIP}\s+${AUTH}\s*${SRC_CLIENT}:\s*${SRC_ADMIN}\s+${SRC_OPER} -> Record

@@ -1,0 +1,132 @@
+Value Filldown Reference_Order ([^\n]+)
+Value Filldown,Required,Key Reference ([^\n]+)
+Value Admin_Status (\w+)
+Value Rx_Quality_Level (\w+)
+Value Quality_Level_Override (\w+)
+Value Qualified_For_Use (\w+)
+Value Not_Qualified_Due_To ([^\n]+)
+Value Selected_For_Use (\w+)
+Value Not_Selected_Due_To ([^\n]+)
+Value Source_Port (\w+)
+
+
+
+Start
+  ^Reference Order\s+:\s+${Reference_Order} -> Reference
+
+Reference
+  ^Reference [^\n]+ -> Continue.Record
+  ^Reference ${Reference}
+  ^\s+Admin Status\s+:\s+${Admin_Status}
+  ^\s+Rx Quality Level\s+:\s+${Rx_Quality_Level}
+  ^\s+Quality Level Override\s+:\s+${Quality_Level_Override}
+  ^\s+Qualified For Use\s+:\s+${Qualified_For_Use}
+  ^\s+\s+Not Qualified Due To\s+:\s+${Not_Qualified_Due_To}
+  ^\s+Selected For Use\s+:\s+${Selected_For_Use}
+  ^\s+\s+Not Selected Due To\s+:\s+${Not_Selected_Due_To}
+  ^\s+Source Port\s+:\s+${Source_Port}
+  ^#{10,} -> EOF
+  
+  
+  
+  
+  
+#===============================================================================
+#System Interface Timing Operational Info
+#===============================================================================
+#System Status CPM A                : Master Free Run
+#    Reference Input Mode           : Non-revertive
+#    Quality Level Selection        : Disabled
+#    Reference Selected             : none
+#    System Quality Level           : st3
+#    Current Frequency Offset (ppm) : +0
+#    Input Minimum Quality Level    : none
+#    Wait to Restore Timer          : Disabled
+#
+#Reference Order                    : bits ref1 ref2 ptp
+#
+#Reference Mate CPM   
+#    Qualified For Use              : Yes
+#    Selected For Use               : No
+#        Not Selected Due To        :     on standby
+#
+#Reference Input 1   
+#    Admin Status                   : down
+#    Rx Quality Level               : unknown
+#    Quality Level Override         : none
+#    Qualified For Use              : No
+#        Not Qualified Due To       :     disabled
+#    Selected For Use               : No
+#        Not Selected Due To        :     disabled
+#    Source Port                    : None
+#
+#Reference Input 2   
+#    Admin Status                   : down
+#    Rx Quality Level               : unknown
+#    Quality Level Override         : none
+#    Qualified For Use              : No
+#        Not Qualified Due To       :     disabled
+#    Selected For Use               : No
+#        Not Selected Due To        :     disabled
+#    Source Port                    : None
+#
+#Reference BITS A   
+#    Input Admin Status             : down
+#    Rx Quality Level               : failed
+#    Quality Level Override         : none
+#    Qualified For Use              : No
+#        Not Qualified Due To       :     disabled
+#    Selected For Use               : No
+#        Not Selected Due To        :     disabled
+#    Interface Type                 : DS1
+#    Framing                        : ESF
+#    Line Coding                    : B8ZS
+#    Line Length                    : 0-110ft
+#    Output Admin Status            : down
+#    Output Minimum Quality Level   : none
+#    Output Source                  : line reference
+#    Output Reference Selected      : none
+#    Output Squelch                 : Disabled
+#    Tx Quality Level               : N/A
+#===============================================================================
+
+  
+  
+#===============================================================================
+#System Status CPM A                : Master Free Run
+#    Reference Input Mode           : Non-revertive
+#    Quality Level Selection        : Disabled
+#    Reference Selected             : none
+#    System Quality Level           : st3
+#
+#Reference Order                    : ref1 ref2
+#
+#Reference Input 1   
+#    Admin Status                   : down
+#    Rx Quality Level               : unknown
+#    Quality Level Override         : none
+#    Qualified For Use              : No
+#        Not Qualified Due To       :     disabled
+#    Selected For Use               : No
+#        Not Selected Due To        :     disabled
+#    Source Port                    : None
+#
+#Reference Input 2      
+#    Admin Status                   : down
+#    Rx Quality Level               : unknown
+#    Quality Level Override         : none
+#    Qualified For Use              : No
+#        Not Qualified Due To       :     disabled
+#    Selected For Use               : No
+#        Not Selected Due To        :     disabled
+#    Source Port                    : None
+#
+#Reference PTP   
+#    Admin Status                   : down
+#    Rx Quality Level               : unknown
+#    Quality Level Override         : none
+#    Qualified For Use              : No
+#        Not Qualified Due To       :     disabled
+#    Selected For Use               : No
+#        Not Selected Due To        :     disabled
+#===============================================================================

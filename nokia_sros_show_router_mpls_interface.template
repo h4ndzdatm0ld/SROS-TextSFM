@@ -1,0 +1,16 @@
+Value Interface (\w.*?)
+Value Port_id (\S+)
+Value Adm (\w+)
+Value Opr (\w+)
+Value TE_metric (\S+)
+Value Admin_Groups (\w+)
+Value Srlg_Groups (\w+)
+
+Start
+  ^-{10,} -> Mpls_ints
+  
+Mpls_ints
+  ^${Interface}\s+${Port_id}\s+${Adm}\s+${Opr}\s+${TE_metric}
+  ^\s+Admin Groups\s+${Admin_Groups}
+  ^\s+Srlg Groups\s+${Srlg_Groups} -> Record
+  ^-{10,} -> EOF

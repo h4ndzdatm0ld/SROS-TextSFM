@@ -1,0 +1,11 @@
+Value BootTime (.*)
+Value SiteActiv (.*)
+Value SiteMinDown (.*)
+
+Start
+  ^Multi-Chassis BGP Multi-Homing -> ReadData
+
+ReadData
+  ^Boot-Timer\s+:\s+${BootTime}
+  ^Site-Activation\s+:\s+${SiteActiv}
+  ^Site Min Down Timer\s+:\s+${SiteMinDown}

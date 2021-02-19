@@ -1,0 +1,13 @@
+Value Flag (\S+)
+Value Key,Required Network (\d+\.\d+\.\d+\.\d+\/\d+)
+Value LocalPref (\S+)
+Value MED (\S+)
+Value Nexthop (\d+\.\d+\.\d+\.\d+)
+Value PathId (\S+)
+Value Label (\S+)
+Value AsPath (\S+)
+
+Start
+  ^${Flag}\s+${Network}\s+${LocalPref}\s+${MED}
+  ^\s+${Nexthop}\s+${PathId}\s+${Label}
+  ^\s+${AsPath} -> Record

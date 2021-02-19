@@ -1,0 +1,13 @@
+Value Required,Key Group_Address (\S+)
+Value Type (\S+)
+Value Spt_Bit (\S+)
+Value Inc_Intf (.*?)
+Value No_Oifs (\d+)
+Value Key Source_Address (\S+)
+Value RP (\S+)
+Value State (\S+)
+Value Inc_Intf_S (.*?)
+
+Start
+  ^${Group_Address}\s+\(${Type}\)?(\s+${Spt_Bit}\s+)?${Inc_Intf}\s+${No_Oifs}
+  ^\s+${Source_Address}\s+${RP}(\s+${State})?(\s+${Inc_Intf_S})? -> Record

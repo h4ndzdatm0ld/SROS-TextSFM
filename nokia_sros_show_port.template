@@ -1,0 +1,7 @@
+Value Key PORT (\S+)
+Value ADMIN ((?i)Up|Down)
+Value LINK ((?i)Yes|No)
+Value OPER (\S+(\s\S+)?)
+
+Start
+  ^${PORT}\s+${ADMIN}\s+${LINK}\s+${OPER} -> Record

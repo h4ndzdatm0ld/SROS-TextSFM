@@ -1,0 +1,11 @@
+Value Required INTERFACE (\w.*?)
+Value ADM (\w+)
+Value OPR (\w+)
+Value QUERIER (\S+)
+Value CFG_VERSION (\d+)
+Value OPR_VERSION (\d+)
+Value NUM_GROUPS (\d+)
+Value POLICY (\S+)
+
+Start
+  ^${INTERFACE}\s+${ADM}\s+${OPR}\s+${QUERIER}\s+${CFG_VERSION}/${OPR_VERSION}\s+${NUM_GROUPS}\s+${POLICY} -> Record

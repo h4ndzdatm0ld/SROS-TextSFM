@@ -1,0 +1,45 @@
+Value Key Peer (\d+\.\d+\.\d+\.\d+)
+Value Description ([^\n]+)
+Value Group ([^\n]+)
+Value Peer_AS (\d+)
+Value Peer_Address (\d+\.\d+\.\d+\.\d+)
+Value Local_AS (\d+)
+Value Local_Address (\d+\.\d+\.\d+\.\d+)
+Value Peer_Type (\S+)
+Value State (\S+(\s\S+)?)
+Value Local_Family ([^\n]+)
+Value Remote_Family ([^\n]+)
+
+Start
+  ^Peer\s+:\s+\d+\.\d+\.\d+\.\d+ -> Continue.Record
+  ^Peer\s+:\s+${Peer}
+  ^Descriptions+:\s+${Description}
+  ^Groups+:\s+${Group}
+  ^Peer AS\s+:\s+${Peer_AS}
+  ^Peer Address\s+:\s+${Peer_Address}
+  ^Local AS\s+:\s+${Local_AS}
+  ^Local Address\s+:\s+${Local_Address}
+  ^Peer Type\s+:\s+${Peer_Type}
+  ^State\s+:\s+${State}
+  ^Local Family\s+:\s+${Local_Family}
+  ^Remote Family\s+:\s+${Remote_Family}
+
+#Start
+#  ^-{10,} -> Header
+#
+#Header
+#  ^Peer\s+:\s+${Peer}
+#  ^Descriptions+:\s+${Description}
+#  ^Groups+:\s+${Group}
+#  ^-{10,} -> Params
+#  
+#Params
+#  ^Peer AS\s+:\s+${Peer_AS}
+#  ^Peer Address\s+:\s+${Peer_Address}
+#  ^Local AS\s+:\s+${Local_AS}
+#  ^Local Address\s+:\s+${Local_Address}
+#  ^Peer Type\s+:\s+${Peer_Type}
+#  ^State\s+:\s+${State}
+#  ^Local Family\s+:\s+${Local_Family}
+#  ^Remote Family\s+:\s+${Remote_Family}
+#  ^-{10,} -> Record Header

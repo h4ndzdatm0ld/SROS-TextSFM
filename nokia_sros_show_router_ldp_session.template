@@ -1,0 +1,11 @@
+Value Filldown Name (.*)
+Value Key,Required Peer (\d+.\d+.\d+.\d+:\d+)
+Value AdjType (\S+)
+Value State (\S+)
+Value MsgSent (\d+)
+Value MsgRecv (\d+)
+Value UpTime (.*)
+
+Start
+  ^${Name}\s+Sessions
+  ^${Peer}\s+${AdjType}\s+${State}\s+${MsgSent}\s+${MsgRecv}\s+${UpTime} -> Record

@@ -1,0 +1,16 @@
+Value Key,Required PORT_LAG_APS (((?:lag-\d+)|aps|\d+/\d+/\d+(\.\d+)*))
+Value Key L2 (\S+)
+Value SVC_ID (\d+)
+Value ING_QOS (\S+)
+Value ING_FLTR (\S+)
+Value EGR_QOS (\S+)
+Value EGR_FLTR (\S+)
+Value ADM (\S+)
+Value OPR (\S+)
+
+Start
+  ^-{5,} -> Entries
+
+Entries
+  ^-{5,} -> EOF
+  ^${PORT_LAG_APS}([:-]${L2})?\s+${SVC_ID}\s+${ING_QOS}\s+${ING_FLTR}\s+${EGR_QOS}\s+${EGR_FLTR}\s+${ADM}\s+${OPR} -> Record

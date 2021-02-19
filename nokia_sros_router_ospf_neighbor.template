@@ -1,0 +1,16 @@
+Value Filldown Name (.*)
+Value Required InterfaceName (\S+)
+Value AreaId (\d+.\d+.\d+.\d+)
+Value RTrId (\S+)
+Value State (\S+)
+Value Pri (\d+)
+Value RetxQ (\d+)
+Value TTL (\d+)
+
+Start
+  ^={5,79} -> ReadName
+
+ReadName
+  ^${Name}\s+(N|n)eighbors
+  ^\s*${InterfaceName}\s+${RTrId}\s+${State}\s+${Pri}\s+${RetxQ}\s+${TTL}
+  ^\s+${AreaId} -> Record

@@ -1,0 +1,98 @@
+# System
+Value SysName (\S+)
+Value SysType (.*)
+Value Version (\S+)
+Value SysContact (.*)
+Value SysLocation (.*)
+Value SysCoordinates (.*)
+Value SysAtv (\S+)
+Value SysUpTime (.*)
+# SNMP
+Value SnmpPort (\d+)
+Value SnmpEngineId (\S+)
+Value SnmpEngineBoot (\d+)
+Value SnmpMaxMsgSize (\d+)
+Value SnmpAdmState (\S+)
+Value SnmpOperState (\S+)
+Value SnmpIndexBootState (\S+)
+Value SnmpSyncState (\S+)
+# Rest
+Value TelAdm (\S+)
+Value TelOper (\S+)
+Value BOFSrc (\S+)
+Value ImgSrc (\S+)
+Value ConfSrc (\S+)
+Value LastBootConfigFile (\S+)
+Value LastBootConfigVersion (.*)
+Value LastSavedConfig (\S+)
+Value TimeLastSaved (.*)
+Value ChangesSinceLastSave (\S+)
+Value UserLastModified (\S+)
+Value MaxBackRev (\d+)
+Value CfgOkScript (\S+)
+Value CfgOkStat (.*)
+Value CfgFaiLastSavedConfigript (\S+)
+Value CfgFailStat (.*)
+Value Microwave (\S+)
+Value ManageIpAddr (\S+)
+Value PriDNSServ (\S+)
+Value SecDNSServ (\S+)
+Value TerDNSServ (\S+)
+Value DNSDom (.*)
+Value DNSResPref (\S+)
+Value BOFStaticRoutes (\S+)
+Value ATMLocId (\S+)
+Value ATMRetrUp (\d+)
+Value ATMRetrDown (\d+)
+Value ATMLoopPer (\d+)
+Value ICMPVendor (\S+)
+
+Start
+  ^System Information -> ReadData
+
+ReadData
+  ^System Name\s*:\s*${SysName}
+  ^System Type\s*:\s*${SysType}
+  ^System Version\s*:\s*${Version}
+  ^System Contacts+:\s+${SysContact}
+  ^System Location\s*:\s*${SysLocation}
+  ^System Coordinates\s*:\s*${SysCoordinates}
+  ^System Active Slot\s*:\s*${SysAtv}
+  ^System Up Time\s*:\s*${SysUpTime}
+  ^SNMP Port\s*:\s*${SnmpPort}
+  ^SNMP Engine ID\s*:\s*${SnmpEngineId}
+  ^SNMP Engine Boots\s*:\s*${SnmpEngineBoot}
+  ^SNMP Max Message Size\s*:\s*${SnmpMaxMsgSize}
+  ^SNMP Admin State\s*:\s*${SnmpAdmState}
+  ^SNMP Oper State\s*:\s*${SnmpOperState}
+  ^SNMP Index Boot Status\s*:\s*${SnmpIndexBootState}
+  ^SNMP Sync State\s*:\s*${SnmpSyncState}
+  ^Tel/Tel6/SSH/FTP Admin\s*:\s*${TelAdm}
+  ^Tel/Tel6/SSH/FTP Oper\s*:\s*${TelOper}
+  ^BOF Source\s*:\s*${BOFSrc}
+  ^Image Source\s*:\s*${ImgSrc}
+  ^Config Source\s*:\s*${ConfSrc}
+  ^Last Booted Config File\s*:\s*${LastBootConfigFile}
+  ^Last Boot (Cfg|Config) Version\s*:\s*${LastBootConfigVersion}
+  ^Last Saved Config\s*:\s*${LastSavedConfig}
+  ^Time Last Saved\s*:\s*${TimeLastSaved}
+  ^Changes Since Last Save\s*:\s*${ChangesSinceLastSave}
+  ^User Last Modified\s*:\s*${UserLastModified}
+  ^Max Cfg/BOF Backup Rev\s*:\s*${MaxBackRev}
+  ^Cfg-OK Script\s*:\s*${CfgOkScript}
+  ^Cfg-OK Script Status\s*:\s*${CfgOkStat}
+  ^Cfg-Fail Script\s*:\s*${CfgFaiLastSavedConfigript}
+  ^Cfg-Fail Script Status\s*:\s*${CfgFailStat}
+  ^Microwave S/W Package\s*:\s*${Microwave}
+  ^Management IP Addr\s*:\s*${ManageIpAddr}
+  ^Primary DNS Server\s*:\s*${PriDNSServ}
+  ^Secondary DNS Server\s*:\s*${SecDNSServ}
+  ^Tertiary DNS Server\s*:\s*${TerDNSServ}
+  ^DNS Domain\s*:\s*${DNSDom}
+  ^DNS Resolve Preference\s*:\s*${DNSResPref}
+  ^BOF Static Routes\s*:\s*${BOFStaticRoutes}
+  ^ATM Location ID\s*:\s*${ATMLocId}
+  ^ATM OAM Retry Up\s*:\s*${ATMRetrUp}
+  ^ATM OAM Retry Down\s*:\s*${ATMRetrDown}
+  ^ATM OAM Loopback Period\s*:\s*${ATMLoopPer}
+  ^ICMP Vendor Enhancement\s*:\s*${ICMPVendor}

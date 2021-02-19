@@ -1,0 +1,11 @@
+Value Key ROUTE (\d+\.\d+\.\d+\.\d+\/\d+)
+Value TYPE (\S+)
+Value PROTO (\S+(?:\s\S+)?)
+Value PREF (\d+)
+Value NEXTHOP (\S+(?:\s\S+)?)
+Value METRIC (\d+)
+
+
+Start
+  ^${ROUTE}\s+${TYPE}\s+${PROTO}\s+\S+\s+${PREF}$$
+  ^\s+${NEXTHOP}\s.*?${METRIC}$$ -> Record

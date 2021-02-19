@@ -1,0 +1,13 @@
+Value Key LSP_Name (\S+)
+Value To (\d+\.\d+\.\d+\.\d+)
+Value Tun_id (\d+)
+Value Fastfail_Config (\S+)
+Value Adm (\w+)
+Value Opr (\w+)
+
+Start
+  ^-{10,} -> Lsp
+
+Lsp
+  ^${LSP_Name}\s+${To}\s+${Tun_id}\s+${Fastfail_Config}\s+${Adm}\s+${Opr} -> Record
+  ^-{10,} -> EOF

@@ -1,0 +1,12 @@
+Value Key,Filldown SLOT (\S+)
+Value Key,Required MDA (\S+)
+Value CardType (\S+)
+Value AdminState (\S+)
+Value OperState (\S+)
+
+Start
+  ^-{10,} -> MDAs
+
+MDAs
+  ^${SLOT}\s+${MDA}\s+${CardType}\s+${AdminState}\s+${OperState} -> Record
+  ^\s+${MDA}\s+${CardType}\s+${AdminState}\s+${OperState} -> Record

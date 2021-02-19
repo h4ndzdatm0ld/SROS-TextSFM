@@ -1,0 +1,9 @@
+Value DayOfWeek (\w+)
+Value Month (\w+)
+Value MonthDay (\d+)
+Value Time (..:..:..)
+Value Timezone (\w+)
+Value Required,Key Year (\d+)
+
+Start
+  ^${DayOfWeek}\s+${Month}\s+${MonthDay}\s+${Time}\s+${Timezone}\s+${Year} -> Record

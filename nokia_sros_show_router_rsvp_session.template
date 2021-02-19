@@ -1,0 +1,12 @@
+Value FROM (\d+\.\d+\.\d+\.\d+)
+Value TO (\d+\.\d+\.\d+\.\d+)
+Value Required,Key TunnelId (\d+)
+Value Required,Key LSPId (\d+)
+Value Required,Key Name (\S+)
+Value State (Up|Down)
+
+Start
+  ^RSVP -> ReadData
+  
+ReadData
+  ^${FROM}\s*${TO}\s*${TunnelId}\s*${LSPId}\s*${Name}\s*${State} -> Record

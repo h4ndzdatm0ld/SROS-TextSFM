@@ -1,0 +1,19 @@
+Value Clock_Type (\S+)
+Value PTP_Profile ([^\n]+)
+Value Domain (\d+)
+Value Network_Type (\S+)
+Value Admin_State (\w+)
+Value Oper_State (\w+)
+Value PTP_Port_State (\w+)
+Value Time_Source ([^\n]+)
+
+Start
+  ^-{10,} -> Clock
+  
+Clock
+  ^Clock Type\s+:\s+${Clock_Type}\s+PTP Profile\s+:\s+${PTP_Profile}
+  ^Domain\s+:\s+${Domain}\s+Network Type\s+:\s+${Network_Type}
+  ^Admin State\s+:\s+${Admin_State}\s+Oper State\s+:\s+${Oper_State}
+  ^PTP Port State\s+:\s+${PTP_Port_State}
+  ^Time Source\s+:\s+${Time_Source} -> Record
+  ^={10,} -> EOF

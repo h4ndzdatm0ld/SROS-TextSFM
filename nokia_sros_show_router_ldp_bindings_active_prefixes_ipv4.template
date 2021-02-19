@@ -1,0 +1,11 @@
+Value Key,Required Prefix (\d+\.\d+\.\d+\.\d+\/\d+)
+Value Key Op (\S+)
+Value IngLbl (\S+)
+Value EgrLbl (\S+)
+Value EgrNextHop (\S+)
+Value EgrIf_LspId (\S+)
+
+Start
+  ^${Prefix}\s+${Op}\s+${IngLbl}\s+${EgrLbl}
+  ^(\s+)?${EgrNextHop}\s+${EgrIf_LspId}
+  ^\s+$$ -> Record

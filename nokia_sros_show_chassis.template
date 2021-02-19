@@ -1,0 +1,25 @@
+Value Name (.*)
+Value Type (.+)
+Value CriticalLEDState (.*)
+Value MajorLEDState (.*)
+Value MinorLEDState (.*)
+Value OverTempState (.*)
+Value AdminChassisMode (.*)
+Value OperChassisMode (.*)
+Value MixedMode (.*)
+Value TimeOfLastBoot (.*)
+Value CurrentAlarmState (.*)
+
+Start
+  ^\s*Name\W*${Name}
+  ^\s*Type\W*${Type}
+  ^\s*Critical LED state\W*${CriticalLEDState}
+  ^\s*Major LED state\W*${MajorLEDState}
+  ^\s*Minor LED state\W*${MinorLEDState}
+  ^\s*Over Temperature state\W*${OverTempState}
+  ^\s*Admin chassis mode\W*${AdminChassisMode}
+  ^\s*Oper chassis mode\W*${OperChassisMode}
+  ^\s*Mixed mode\W*${MixedMode}
+  ^\s*Time of last boot\W*${TimeOfLastBoot}
+  ^\s*Current alarm state\W*${CurrentAlarmState}
+  ^-{10,} -> EOF

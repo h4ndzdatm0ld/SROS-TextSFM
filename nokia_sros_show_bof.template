@@ -1,0 +1,32 @@
+Value PrimImg (\S+)
+Value PrimConf (\S+)
+Value Address (.*)
+Value SecImg (\S+)
+Value AutoNego (.*)
+Value Duplex (\S+)
+Value Speed (\d+)
+Value Wait (\d+)
+Value Persist (\S+)
+Value NLLS (.*)
+Value NLS (.*)
+Value NF (.*)
+Value ConsSpeed (\d+)
+
+
+Start
+  ^BOF -> ReadData
+
+ReadData
+  ^\s+primary-image\s+${PrimImg}
+  ^\s+primary-config\s+${PrimConf}
+  ^\s+address\s+${Address}
+  ^\s+secondary\s+${SecImg}
+  ^\s+autonegotiat\s+${AutoNego}
+  ^\s+duplex\s+${Duplex}
+  ^\s+speed\s+${Speed}
+  ^\s+wait\s+${Wait}
+  ^\s+persist\s+${Persist}
+  ^\s+no li-local-save\s+${NLLS}
+  ^\s+no li-separate\s+${NLS}
+  ^\s+no fips-140-2\s+${NF}
+  ^\s+console-speed\s+${ConsSpeed} -> Record

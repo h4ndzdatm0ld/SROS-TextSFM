@@ -1,0 +1,14 @@
+Value Required,Key INTERFACE (\w.*?)
+Value TotSessions (\S+)
+Value ActiveSessions (\S+)
+Value TotalBW (\S+)
+Value ReservBW (\S+)
+Value AdminState (Up|Down)
+Value OperState (Up|Down)
+
+Start
+  ^RSVP -> ReadData
+  
+ReadData
+  ^${INTERFACE}\s*${TotSessions}\s*${ActiveSessions}\s*${TotalBW}\s*${ReservBW}\s*${AdminState}\s*${OperState} -> Record
+

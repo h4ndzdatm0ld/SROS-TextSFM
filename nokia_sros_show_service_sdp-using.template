@@ -1,0 +1,15 @@
+Value SVC_ID (\d+)
+Value Key SDP_ID (\d+)
+Value Key SDP_SVC_ID (\d+)
+Value TYPE (\w+)
+Value FAR_END (\S+)
+Value OPR (\w+)
+Value ING_LBL (\S+)
+Value EGR_LBL (\S+)
+
+Start
+  ^-{5,} -> Entries
+
+Entries
+  ^-{5,} -> EOF
+  ^${SVC_ID}\s+${SDP_ID}:${SDP_SVC_ID}\s+${TYPE}\s+${FAR_END}\s+${OPR}\s+${ING_LBL}\s+${EGR_LBL} -> Record

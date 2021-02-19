@@ -1,0 +1,11 @@
+Value Required,Key SysID ([\w-]+)
+Value Usage (\w+)
+Value State (\w+)
+Value Hold (\d+)
+Value INTERFACE ([\w-]+(?: \S+)*)
+
+Start
+  ^ISIS -> ReadData
+
+ReadData
+  ^${SysID}\s+${Usage}\s+${State}\s+${Hold}\s+${INTERFACE} -> Record

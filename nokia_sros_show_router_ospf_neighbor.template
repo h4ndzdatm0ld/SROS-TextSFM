@@ -1,0 +1,9 @@
+Value Key,Required Interface (.*?)
+Value AreaId (\S+)
+Value RtrId (\d+\.\d+\.\d+\.\d+)
+Value State (\S+)
+Value Pri (\d+)
+
+Start
+  ^(\s+)?${Interface}\s\s+${RtrId}\s+${State}\s+${Pri}
+  ^\s+${AreaId} -> Record

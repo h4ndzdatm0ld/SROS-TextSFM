@@ -1,0 +1,13 @@
+Value Required,Key INTERFACE (\w.*?)
+Value ADMIN (Up|Down)
+Value OPR_v4 (\S+)
+Value OPR_v6 (\S+)
+Value MODE (\S+)
+Value PORT_SAP (\S+)
+Value List ADDRESS (\S+)
+Value List PfxState (\S+)
+
+Start
+  ^.*?\s+(Up|Down) -> Continue.Record
+  ^${INTERFACE}\s+${ADMIN}\s+${OPR_v4}/${OPR_v6}\s+${MODE}\s+${PORT_SAP}
+  ^\s+${ADDRESS}\s+${PfxState}

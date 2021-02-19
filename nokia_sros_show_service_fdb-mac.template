@@ -1,0 +1,21 @@
+Value Key SVC_ID (\S+)
+Value Key MAC (\S+)
+Value SOURCE_TYPE (\w+)
+Value SOURCE_PORT (\d+/\d+/\d+)
+Value SAP_DOT1Q (\d+)
+Value SAP_QINQ (\d+)
+Value SDP_ID (\d+)
+Value SDP_SVC_ID (\d+)
+Value MAC_TYPE (\S+?)
+Value AGE (\d+)
+Value LAST_CHANGE (.*)
+
+Start
+  ^-{5,} -> Entries
+
+Entries
+  ^-{5,} -> EOF
+  ^\S+\s+\S+\s+${SOURCE_TYPE}\s+\S+\s+\S+ -> Continue
+  ^\S+\s+\S+\s+${SOURCE_TYPE}:${SOURCE_PORT}(:${SAP_DOT1Q})?(:${SAP_QINQ})? -> Continue
+  ^\S+\s+\S+\s+${SOURCE_TYPE}:${SDP_ID}:${SDP_SVC_ID} -> Continue
+  ^${SVC_ID}\s+${MAC}\s+\S+\s+${MAC_TYPE}(/${AGE})?\s+\b${LAST_CHANGE} -> Record

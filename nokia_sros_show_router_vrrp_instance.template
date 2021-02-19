@@ -1,0 +1,24 @@
+Value Key,Required INTERFACE (\S+)
+Value VR_ID (\d+)
+Value OWN (\S+)
+Value ADM (\S+)
+Value STATE (\S+)
+Value BASE_PRI (\d+)
+Value MSG_INT (\d+)
+Value IP (\S+)
+Value OPR (\S+)
+Value POL_ID (\S+)
+Value IN_USE_PRI (\d+)
+Value INH_INT (\S+)
+Value List BACKUP_ADDR (\S+)
+
+Start
+  ^-{5,} -> Entry
+
+Entry
+  ^\S+\s+\d+\s+\S+\s+\S+\s+\S+\s+\d+\s+\d+ -> Continue.Record
+  ^${INTERFACE}\s+${VR_ID}\s+${OWN}\s+${ADM}\s+${STATE}\s+${BASE_PRI}\s+${MSG_INT}
+  ^\s+${IP}\s+${OPR}\s+${POL_ID}\s+${IN_USE_PRI}\s+${INH_INT}
+  ^(?i)\s+backup\s+addr:\s+${BACKUP_ADDR}
+  ^\s+${BACKUP_ADDR}\s+
+  ^-{5,} -> EOF

@@ -1,0 +1,8 @@
+Value Required INTERFACE (.*)
+Value Required NEIGHBOR (\S+)
+Value STATE (\S+)
+Value PRIORITY (\d+)
+
+Start
+  ^Neighbor Rtr Id : ${NEIGHBOR}.*: ${INTERFACE}
+  ^Neighbor State\s+: ${STATE}.*: ${PRIORITY} -> Record
